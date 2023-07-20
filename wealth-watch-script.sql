@@ -1,37 +1,40 @@
-create table user
+CREATE SCHEMA IF NOT EXISTS wealth_watch;
+USE wealth_watch;
+
+CREATE IF NOT EXISTS TABLE user
 (
-id int unsigned not null primary key auto_increment,
-name varchar(60) not null unique,
-password varchar(20) not null,
-email varchar(200) not null unique,
-created datetime not null,
-updated datetime not null,
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(60) NOT NULL UNIQUE,
+password VARCHAR(20) NOT NULL,
+email VARCHAR(200) NOT NULL UNIQUE,
+created DATETIME NOT NULL,
+updated DATETIME NOT NULL,
 );
 
-create table portfolio
+CREATE IF NOT EXISTS TABLE portfolio
 (
-id int unsigned not null primary key auto_increment,
-user_id int unsigned not null,
-name varchar(50) not null unique,
-currency enum('CAD', 'USD', 'BRL') not null,
-created datetime not null,
-updated datetime not null,
-constraint fk_portfolio_user_id foreign key (user_id) references user (id)
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id INT UNSIGNED NOT NULL,
+name VARCHAR(50) NOT NULL UNIQUE,
+currency ENUM('CAD', 'USD', 'BRL') NOT NULL,
+created DATETIME NOT NULL,
+updated DATETIME NOT NULL,
+CONSTRAINT fk_portfolio_user_id FOREIGN KEY (user_id) REFERENCES user (id)
 );
 
-create table portfolio_item
+CREATE IF NOT EXISTS TABLE portfolio_item
 (
-id int unsigned not null primary key auto_increment,
-portfolio_id int unsigned not null,
-created datetime not null,
-updated datetime not null,
-symbol varchar(20) not null,
-shares int,
-trade_date date,
-cost_share decimal(4,2),
-day_gain decimal(3,2),
-total_gain decimal(5,2),
-high_limit decimal(4,2),
-low_limit decimal(4,2),
-constraint fk_portfolio_item_portfolio_id foreign key (portfolio_id) references portfolio (id)
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+portfolio_id INT UNSIGNED NOT NULL,
+symbol VARCHAR(20) NOT NULL,
+shares INT,
+trade_date DATE,
+cost_share DECIMAL(4,2),
+day_gain DECIMAL(3,2),
+total_gain DECIMAL(5,2),
+high_limit DECIMAL(4,2),
+low_limit DECIMAL(4,2),
+created DATETIME NOT NULL,
+updated DATETIME NOT NULL,
+CONSTRAINT fk_portfolio_item_portfolio_id FOREIGN KEY (portfolio_id) REFERENCES portfolio (id)
 );
