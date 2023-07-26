@@ -1,8 +1,11 @@
 package com.porpapps.wealthwatchapi.model;
 
+import lombok.Data;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Data
 public class PortfolioItem {
     private Integer id;
     private Integer portfolioId;
