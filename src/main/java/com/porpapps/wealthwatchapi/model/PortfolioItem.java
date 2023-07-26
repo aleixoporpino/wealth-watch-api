@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 public class PortfolioItem {
     private Integer id;
-    private Integer portfolioId;
+    private Portfolio portfolio;
     private String symbol;
     private Integer shares;
     private LocalDate tradeDate;
