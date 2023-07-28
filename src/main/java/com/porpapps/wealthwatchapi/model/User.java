@@ -3,12 +3,14 @@ package com.porpapps.wealthwatchapi.model;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Data
 public class User {
     private Integer id;
     private String name;
     private String password;
     private String email;
-    private LocalDate created;
-    private LocalDate updated;
+    private LocalDateTime created;
+    private LocalDateTime updated;
 }

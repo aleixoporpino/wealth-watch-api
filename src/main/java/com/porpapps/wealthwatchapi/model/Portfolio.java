@@ -3,6 +3,7 @@ package com.porpapps.wealthwatchapi.model;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 public class Portfolio {
@@ -10,7 +11,7 @@ public class Portfolio {
     private User user;
     private String name;
     private Enum currency;
-    private LocalDate created;
-    private LocalDate updated;
+    private LocalDateTime created;
+    private LocalDateTime updated;
 
 }

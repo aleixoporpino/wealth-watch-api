@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 public class PortfolioItem {
@@ -17,6 +18,6 @@ public class PortfolioItem {
     private BigDecimal totalGain;
     private BigDecimal highLimit;
     private BigDecimal lowLimit;
-    private LocalDate created;
-    private LocalDate updated;
+    private LocalDateTime created;
+    private LocalDateTime updated;
 }
