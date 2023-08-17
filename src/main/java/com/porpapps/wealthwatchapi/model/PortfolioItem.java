@@ -16,30 +16,22 @@ public class PortfolioItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",
-            columnDefinition = "INT",
-            nullable = false,
-            updatable = false)
+    @Column(name = "id", columnDefinition = "INT", nullable = false, updatable = false)
     private Integer id;
 
     @ManyToOne( targetEntity = Portfolio.class ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "portfolio_id",
-            referencedColumnName = "id",
-            columnDefinition = "INT",
-            nullable = false,
+    @JoinColumn(name = "portfolio_id", referencedColumnName = "id", columnDefinition = "INT", nullable = false,
             updatable = false)
     private Portfolio portfolio;
 
-    @Column(name = "symbol",
-            columnDefinition = "VARCHAR(20)",
-            nullable = false)
+    @Column(name = "symbol", columnDefinition = "VARCHAR(20)", nullable = false)
     private String symbol;
 
     @Column(name = "shares", columnDefinition = "INT")
     private Integer shares;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "trade_date")
+    @Column(name = "trade_date", columnDefinition = "DATE")
     private LocalDate tradeDate;
 
     @Column(name = "cost_share", columnDefinition = "DECIMAL(4, 2)")
@@ -59,11 +51,11 @@ public class PortfolioItem {
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created", nullable = false)
+    @Column(name = "created", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime created;
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated", nullable = false)
+    @Column(name = "updated", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime updated;
 }

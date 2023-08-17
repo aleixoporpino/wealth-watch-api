@@ -14,40 +14,30 @@ public class Portfolio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",
-            columnDefinition = "INT",
-            nullable = false,
-            updatable = false)
+    @Column(name = "id", columnDefinition = "INT", nullable = false, updatable = false)
     private Integer id;
 
     @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id",
-            referencedColumnName = "id",
-            columnDefinition = "INT",
-            nullable = false,
+    @JoinColumn(name = "user_id", referencedColumnName = "id", columnDefinition = "INT", nullable = false,
             updatable = false)
     private User user;
 
-    @Column(name = "name",
-            columnDefinition = "VARCHAR(50)",
-            nullable = false,
-            unique = true)
-        private String name;
+    @Column(name = "name", columnDefinition = "VARCHAR(50)", nullable = false, unique = true)
+    private String name;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "currency", nullable = false)
+    @Column(name = "currency", columnDefinition = "ENUM('CAD', 'USD', 'BRL')", nullable = false)
     private Currency currency;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created", nullable = false)
+    @Column(name = "created", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime created;
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated", nullable = false)
+    @Column(name = "updated", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime updated;
-
 }
 
 

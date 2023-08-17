@@ -14,37 +14,26 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",
-            columnDefinition = "INT",
-            nullable = false,
-            updatable = false)
+    @Column(name = "id", columnDefinition = "INT", nullable = false, updatable = false)
     private Integer id;
 
-    @Column(name = "name",
-            columnDefinition = "VARCHAR(60)",
-            nullable = false,
-            unique = true)
+    @Column(name = "name", columnDefinition = "VARCHAR(60)", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "password",
-            columnDefinition = "VARCHAR(20)",
-            nullable = false)
+    @Column(name = "password", columnDefinition = "VARCHAR(20)", nullable = false)
     private String password;
 
-    @Column(name = "email",
-            columnDefinition = "VARCHAR(200)",
-            nullable = false,
-            unique = true)
+    @Column(name = "email", columnDefinition = "VARCHAR(200)", nullable = false, unique = true)
     private String email;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created", nullable = false)
+    @Column(name = "created", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime created;
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated", nullable = false)
+    @Column(name = "updated", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime updated;
 }
 
