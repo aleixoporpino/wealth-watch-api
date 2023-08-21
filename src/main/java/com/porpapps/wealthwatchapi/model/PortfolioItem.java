@@ -1,7 +1,9 @@
 package com.porpapps.wealthwatchapi.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,6 +14,8 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "portfolio_item")
+@AllArgsConstructor
+@NoArgsConstructor
 public class PortfolioItem {
 
     @Id

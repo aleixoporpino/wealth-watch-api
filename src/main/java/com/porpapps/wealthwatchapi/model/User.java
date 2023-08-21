@@ -1,7 +1,9 @@
 package com.porpapps.wealthwatchapi.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -10,6 +12,8 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "user")
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -36,10 +40,3 @@ public class User {
     @Column(name = "updated", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime updated;
 }
-
-
-
-
-
-
-
