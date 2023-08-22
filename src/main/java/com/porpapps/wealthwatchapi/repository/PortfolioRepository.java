@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PortfolioItem extends JpaRepository<PortfolioItem, Integer> {
+public interface PortfolioRepository extends JpaRepository<PortfolioRepository, Integer> {
 }
