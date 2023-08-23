@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Portfolio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "INT", nullable = false, updatable = false)
     private Integer id;
 
