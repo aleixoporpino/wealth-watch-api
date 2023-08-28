@@ -2,7 +2,6 @@ package com.porpapps.wealthwatchapi.controller;
 
 import com.porpapps.wealthwatchapi.model.User;
 import com.porpapps.wealthwatchapi.repository.UserRepository;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,7 @@ public class UserController {
 
     @PostMapping("/")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
-        final User savedUser = userRepository.save(user);
+        final var savedUser = userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
@@ -38,19 +37,19 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userOptional.get());
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<User> update(Integer id) {
-        Optional<User> userOptional = userRepository.findById(id);
+    @PutMapping("/")
+    public ResponseEntity<User> update(@RequestBody User user) {
+        final Optional<User> userOptional = userRepository.findById(user.getId());
         if (userOptional.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-
-        var user = userOptional.get();
-        return ResponseEntity.status(HttpStatus.OK).body(userRepository.save(user));
+        user.setCreated(userOptional.get().getCreated());
+        userRepository.save(user);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Integer> delete(Integer id) {
+    public ResponseEntity<Integer> delete(@PathVariable("id") Integer id) {
         Optional<User> userOptional = userRepository.findById(id);
         if (userOptional.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
