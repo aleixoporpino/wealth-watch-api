@@ -1,5 +1,6 @@
 package com.porpapps.wealthwatchapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,11 +31,13 @@ public class User {
     @Column(name = "email", columnDefinition = "VARCHAR(200)", nullable = false, unique = true)
     private String email;
 
+    @JsonIgnore
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime created;
 
+    @JsonIgnore
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated", columnDefinition = "DATETIME", nullable = false)
