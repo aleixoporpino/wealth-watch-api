@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequestMapping("/users")
 public class UserController {
     @Autowired
-    UserRepository userRepository; //ponto de injeção: acessar Jpa
+    UserRepository userRepository;
 
     @PostMapping("/")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
