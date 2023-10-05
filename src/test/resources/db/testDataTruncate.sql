@@ -1,0 +1,5 @@
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE user;
+TRUNCATE portfolio;
+TRUNCATE portfolio_item;
+SET FOREIGN_KEY_CHECKS = 1;
